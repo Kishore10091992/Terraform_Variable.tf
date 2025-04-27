@@ -27,15 +27,3 @@ variable "default_ip" {
   type = string
   default = "0.0.0.0/0"
 }
-
-variable "source" {
-  decription = "sourece for terraform"
-  typr = string
-  default = "hasicorp/aws"
-}
-
-variable "verion" {
-  description = "version for terraform"
-  type = string
-  default = "~> 5.0"
-}
