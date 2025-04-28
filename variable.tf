@@ -27,3 +27,15 @@ variable "default_ip" {
   type = string
   default = "0.0.0.0/0"
 }
+
+variable "AMI_id" {
+ description = "AMI id for Ec2"
+ type = string
+ default = "ami-084568db4383264d4"
+}
+
+variable "instance_type" {
+ description = "Instance type for Ec2"
+ type = string
+ default = "t2.micro"
+}
