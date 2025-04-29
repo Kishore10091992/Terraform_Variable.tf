@@ -10,6 +10,12 @@ variable "vpc_cidr" {
   default = "172.168.0.0/16"
 }
 
+ variable "Availability zone" {
+  description = "one availability zone"
+  type = string
+  default = "us-east-1b"
+}
+
 variable "pubsub_cidr" {
   description = "cidr for pubsub"
   type = string
@@ -38,4 +44,17 @@ variable "instance_type" {
  description = "Instance type for Ec2"
  type = string
  default = "t2.micro"
+}
+
+variable "user_data" {
+ description = "User data for Ec2 instance"
+ type = string
+ default = "<<-EOF
+
+  sudo yum update -y
+  sudo yum install -y httpd
+  sudo systemctl start httpd
+  sudo systemctl enable httpd
+  echo "Hello world from Terraform!" > /var/www/html/index.html
+  EOF"
 }
