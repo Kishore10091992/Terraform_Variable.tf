@@ -22,6 +22,7 @@ resource "aws_vpc" "Tf_var_vpc" {
 resource "aws_subnet" "Tf_var_pubsub" {
  vpc_id = aws_vpc.Tf_var_vpc.id
  cidr_block = var.pubsub_cidr
+ availability_zone = var.Availability zone
 
  tags = {
   Name = "Tf_var_pubsub"
@@ -31,6 +32,7 @@ resource "aws_subnet" "Tf_var_pubsub" {
 resource "aws_subnet" "Tf_var_prisub" {
  vpc_id = aws_vpc.Tf_var_vpc.id
  cidr_block = var.prisub_cidr
+ availability_zone = var.Availability zone
 
  tags = {
   Name = "Tf_var_prisub"
@@ -129,6 +131,8 @@ resource "aws_instance" "Tf_var_Ec2_instance" {
   device_index = 1
   network_interface_id = aws_network_interface.priint.id
  }
+
+ user_data = var.user_data
 
   tags = {
    Name = "Tf_var_Ec2_instance"
